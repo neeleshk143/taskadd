@@ -1,38 +1,88 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.choose-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: flex-start;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px;
 }
 
-.App-link {
-  color: #61dafb;
+.choose-left {
+  flex: 1;
+  padding-right: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.choose-right {
+  flex: 2;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+.card {
+  flex-basis: calc(50% - 10px); /* Two cards in a row with spacing */
+  height: 300px;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(19, 16, 16, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+}
+
+
+.card:hover {
+  transform: scale(1.15);
+}
+
+.card-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 100%;
+  position: relative;
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #001B5D;;
+}
+
+.description {
+  font-size: 14px;
+  color: #494848;
+  text-align: center;
+  opacity: 0;
+  position: absolute;
+  bottom: 15px;
+  top:15%;
+  left: 0;
+  right: 0;
+  padding: 10px;
+  /* background-color: rgba(255, 255, 255, 0.9); */
+  transition: opacity 0.3s ease;
+}
+
+.card:hover .description {
+
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .choose-container {
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center;
   }
-  to {
-    transform: rotate(360deg);
+
+  .choose-left, .choose-right {
+    padding: 0; /* Remove padding for smaller screens */
+  }
+
+  .card {
+    flex-basis: calc(100% - 20px); /* Full width for 1 card per row */
   }
 }
+
+
